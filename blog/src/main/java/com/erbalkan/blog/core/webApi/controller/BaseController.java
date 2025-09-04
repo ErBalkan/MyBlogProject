@@ -1,6 +1,7 @@
 package com.erbalkan.blog.core.webApi.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,9 @@ import com.erbalkan.blog.core.utilities.resultPattern.Result;
 
 public class BaseController<T> {
 
-    private final BaseService _baseService;
+    private final BaseService<T> _baseService;
 
-    public BaseController(BaseService baseService) {
+    public BaseController(BaseService<T> baseService) {
         _baseService = baseService;
     }
 
@@ -26,7 +27,7 @@ public class BaseController<T> {
     }
 
     @GetMapping("/{id}")
-    public Result<T> getById(@PathVariable int id){
+    public Result<T> getById(@PathVariable UUID id){
         return _baseService.getById(id);
     }
 
@@ -41,7 +42,7 @@ public class BaseController<T> {
     }
 
     @DeleteMapping("/{id}")
-    public Result<T> delete(@PathVariable int id){
+    public Result<T> delete(@PathVariable UUID id){
         return _baseService.delete(id);
     }
 }

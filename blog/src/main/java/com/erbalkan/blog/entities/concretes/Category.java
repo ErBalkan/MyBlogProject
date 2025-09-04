@@ -1,6 +1,7 @@
 package com.erbalkan.blog.entities.concretes;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.erbalkan.blog.core.entities.BaseEntity;
 
@@ -25,9 +26,9 @@ import lombok.Setter;
 public class Category implements BaseEntity{
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+    @GeneratedValue(strategy=GenerationType.UUID) // UUID olarak otomatik arttırma
+    @Column(name="id",updatable=false,nullable=false,columnDefinition = "uuid default gen_random_uuid()") // Değişemez, 
+    private UUID id;
 
     @Column(name="name")
     private String name;

@@ -64,6 +64,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- MapStruct API -->
+    	<dependency>
+        	<groupId>org.mapstruct</groupId>
+        	<artifactId>mapstruct</artifactId>
+        	<version>1.6.3</version>
+    	</dependency>
 	</dependencies>
 
 	<build>
@@ -78,6 +84,11 @@
 							<artifactId>lombok</artifactId>
 						</path>
 					</annotationProcessorPaths>
+					    <path>
+                        	<groupId>org.mapstruct</groupId>
+                        	<artifactId>mapstruct-processor</artifactId>
+                        	<version>1.6.0</version>
+                    	</path>
 				</configuration>
 			</plugin>
 			<plugin>

@@ -2,6 +2,7 @@ package com.erbalkan.blog.business.concretes;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -19,19 +20,19 @@ public class PostManager implements PostService{
     private final PostRepository _postRepository;
 
     @Override
-    public Result add(Post data) {
+    public Result<Post> add(Post data) {
         _postRepository.save(data);
         return Result.success("Post başarıyla eklendi.");
     }
 
     @Override
-    public Result update(Post data) {
+    public Result<Post> update(Post data) {
         _postRepository.save(data);
         return Result.success("Post başarıyla güncellendi.");
     }
 
     @Override
-    public Result delete(int id) {
+    public Result<Post> delete(UUID id) {
         _postRepository.deleteById(id);
         return Result.success("Post başarıyla silindi.");
     }
@@ -43,7 +44,7 @@ public class PostManager implements PostService{
     }
 
     @Override
-    public Result<Post> getById(int id) {
+    public Result<Post> getById(UUID id) {
         Optional<Post> data = _postRepository.findById(id);
         return Result.success(data.get(), "Post getirildi.");
     }

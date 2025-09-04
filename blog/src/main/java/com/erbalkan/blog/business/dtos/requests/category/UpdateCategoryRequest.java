@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class CreateCategoryRequest implements BaseDto{
+public class UpdateCategoryRequest implements BaseDto {
     private String name;
 }
